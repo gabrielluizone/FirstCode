@@ -1,0 +1,996 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Importações e Formatação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, a4paper]{article}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[scaled]{helvet}
+\usepackage{esvect}
+\usepackage{amsmath}
+\usepackage{eso-pic}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\usepackage[left=21.4mm,top=4.0cm,right=21.4mm,bottom=4.0cm]{geometry}
+
+\newtheorem{definition}{Definição}
+\newtheorem{result}{Resolução}
+%\renewcommand*\familydefault{\sfdefault}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Capa Inicial do Projeto de Matemática
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Tarefa Escalonamento}
+\author{Matemática - Ciências de Dados}
+\date{26 de maio de 2022}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Informações
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Integrantes do Grupo}
+Turma de Ciências de Dados da Faculdade de Tecnologia da Baixada Santista - FatecRL
+\begin{itemize}
+    \item Gabriel Luiz
+    \item Gabriel Andrade
+    \item Denis Oliveira
+\end{itemize}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Primeira Questão, transformar o sistema em forma Matricial
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Primeira Questão}
+\begin{definition}
+
+
+    Aqui temos um Sistema Linear, e colocaremos o Sistema em formar Matricial, ou seja, A\cdot x = b.
+    
+\newline
+\begin{center}
+    A = $\left\{\begin{array}{lllll}
+    +x\ \ +y\ \ +2z\ \ +w\ \ = \ \ 22\\\\ +x\ \ -y\ \ -z\ \ +2w\ \ = \ \ 20\\\\ -x\ \ -2y \ \ +z \ \ +2w\ =\ \ 11 \\\\ +x\ \ +y \ \ +z\ \ +w \ \ = \ \ 20
+    \end{array}\right\\$
+\newline
+\end{center}
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Resultado
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{result} 
+Sitema Linear na Forma Matricial, A\cdot	x = b\newline
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1 && 1 && 2 && 1 \\\\
+    1 && -1 && -1 && 2 \\\\
+    -1 && -2 && 1 && 2 \\\\
+    1 && 1 && 1 && 1 \\
+    \end{array}\hspace{10}\right] \cdot	 \left[\begin{array}{dddddddd}
+        x \\\\
+        y \\\\
+        z \\\\
+        w  \\
+        \end{array}\right] = \left[\begin{array}{dddddddd}
+            22 \\\\
+            20 \\\\
+            11 \\\\
+            20  \\
+\end{array}\right]$
+\end{center}
+\end{result}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Segunda Questão, resolver o sistema
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Segunda Questão}
+\begin{definition}
+    Temos O Sistema em forma Matricial, e para sabermos os seus respectivos valores de x, y, z e w, precisamos resolver pelo método da eliminação de Gauss, também conhecida como Escalonamento.
+
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   1   &&   2   &&   1 \\\\
+    1   &&  -1   &&  -1   &&   2 \\\\
+    -1  &&  -2   &&   1   &&   2 \\\\
+    1   &&   1   &&   1   &&   1 \\
+    \end{array}\hspace{10}\right] \cdot	 \left[\begin{array}{dddddddd}
+        x \\\\
+        y \\\\
+        z \\\\
+        w \\
+        \end{array}\right] = \left[\begin{array}{dddddddd}
+            22 \\\\
+            20 \\\\
+            11 \\\\
+            20 \\
+\end{array}\right]$
+\end{center}
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Resultado
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{result}
+    Processos para obter a Matriz Escalonada.
+    
+\newline
+
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    1   &&   -1    &&   -1    && 2    \\\\
+   -1   &&   -2    &&    1    && 2    \\\\
+    1   &&    1    &&    1    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        20 \\\\
+        11 \\\\
+        20 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l4 \leftarrow l4 + l3} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    1   &&   -1    &&   -1    && 2    \\\\
+   -1   &&   -2    &&    1    && 2    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        20 \\\\
+        11 \\\\
+        31 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    1   &&   -1    &&   -1    && 2    \\\\
+   -1   &&   -2    &&    1    && 2    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        20 \\\\
+        11 \\\\
+        31 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l3 \leftarrow l3 + l1} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    1   &&   -1    &&   -1    && 2    \\\\
+    0   &&   -1    &&    3    && 3    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        20 \\\\
+        33 \\\\
+        31 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    1   &&   -1    &&   -1    && 2    \\\\
+    0   &&   -1    &&    3    && 3    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        20 \\\\
+        33 \\\\
+        31 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l2 \leftarrow l2 - l1} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&   -1    &&    3    && 3    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+        33 \\\\
+        31 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&   -1    &&    3    && 3    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+        33 \\\\
+        31 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l3 \leftarrow l3 - l4} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        31 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&   -1    &&    2    && 3    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        31 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l4\leftarrow l4 -\frac{1}{2}\cdot l2} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    && \frac{7}{2} && \frac{5}{2}   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        32 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    && \frac{7}{2} && \frac{5}{2}    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        32 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l4\leftarrow 2\cdot	l4 } \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    7    && 5   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        64 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    7    && 5    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        64 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l4\leftarrow l4 -7\cdot	l3} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 5   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        50 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 5    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        50 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l4\leftarrow \frac{1}{5}\cdot	l4} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -2 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l2\leftarrow l2 - l4} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -12 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 1    \\\\
+    0   &&   -2    &&   -3    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        22 \\\\
+        -12 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l1\leftarrow l1 - l4} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 0    \\\\
+    0   &&   -2    &&   -3    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        12 \\\\
+        -12 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 0    \\\\
+    0   &&   -2    &&   -3    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        12 \\\\
+        -12 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l2\leftarrow l2 + 3\cdot	l3} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 0    \\\\
+    0   &&   -2    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        12 \\\\
+        -6 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 0    \\\\
+    0   &&   -2    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        12 \\\\
+        -6 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l2\leftarrow -\frac{1}{2}\cdot l2} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    2    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+        12 \\\\
+         3 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    2    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+        12 \\\\
+         3 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l1\leftarrow l1 -2\cdot	l3} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    1    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+         8 \\\\
+         3 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    1    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{10}\right \hspace{0} \left | \hspace{0}\begin{array}{dddddddd}
+         8 \\\\
+         3 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]\hspace{4} \vv{l1\leftarrow l1 - l2} \hspace{4} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1   \\
+\end{array}\hspace{10} \right\hspace{0} \left| \hspace{0}\begin{array}{dddddddd}
+         5 \\\\
+         3 \\\\
+         2 \\\\
+        10 \\
+\end{array}\hspace{0} \right]$
+\end{center}
+\dotfill
+\newline \newline
+ Após o fim do escalonamento, obtivemos os valores de x, y, z e w. E logo verificamos que o nosso Escalonamento está correto.\\
+\newline
+$\left \hspace{5} \begin{array}{matrizz}
+    x   =    5  \\\\
+    y   =    3  \\\\
+    z   =    2  \\\\
+    w   =    10  \\
+\end{array}\hspace{10}\right \hspace{0} \left  \hspace{0}\begin{array}{dddddddd}
+\end{array}\hspace{0} \right\hspace{4} \longrightarrow \hspace{20} A = \left\{\begin{array}{lllll}
+    5\ + \ 3\ + \ 2\cdot	2\ + \ 10\ \ = \ \ 22\\\\ 5\ - \ 3\ - \ 2\ + \ 2\cdot10\ \ = \ \ 20\\\\- \ 5\ - \ 2\cdot	3 \ + \ 2 \ + \ 2\cdot	10\ =\ \ 11 \\\\ 5\ + \ 3 \ + \ 2\ + \ 10 \ \ = \ \ 20
+\end{array}\right\\$
+\newline \newline
+\pagebreak
+\end{result}
+
+\section{Terceira Questão}
+\begin{definition}
+    Temos todos os nosso Algoritmos utilizados para o escalonamento, então para obter a matriz inversa, vamos obter primeiro todas as Matrizes Elementares, aplicando os Algoritmos na Matriz Identidade.
+    
+\newline
+
+\begin{center}
+$\left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{4} \vv{Algoritmo} \hspace{5} \left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    x    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+
+\end{center}
+\newline
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{result}
+    Para simplificar, vamos colocar somente as respostas depois de aplicar o Algoritmo na Matriz Identidade. Os algoritmos podem ser visto no Escalonamento
+    
+\begin{center}
+$M_{1} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    1    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{2} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    1   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\begin{center}
+$M_{3} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+   -1   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{4} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && -1    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\begin{center}
+$M_{5} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    -\frac{1}{2}    &&    0    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{6} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 2    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\begin{center}
+$M_{7} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    -7    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{8} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && \frac{1}{5}    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\begin{center}
+$M_{9} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && -1    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{10} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && -1    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\begin{center}
+$M_{11} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    3    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{12} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    -\frac{1}{2}    &&    0    && 0  \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\begin{center}
+$M_{13} = \left [\hspace{5} \begin{array}{matrizz}
+    1   &&    0    &&    -2    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5}\right ] \hspace{25} M_{14} =\left [\hspace{5}\begin{array}{matrizz}
+    1   &&    -1    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\hspace{5} \right ]\hspace{0}$
+\end{center}
+\dotfill
+\newline \newline
+Aqui estão todas as nossa Matrizes Elementares, M_{1}, M_{2}, M_{3}, ... , M_{14},
+\pagebreak
+\end{result}
+
+\section{Quarta Questão}
+\begin{definition}
+    Temos todas as nossas Matrizes Elementares, e infelizmente tivemos que fazer de forma manual, pois houve um erro com nossa calculadora no Python. Mas continuando, vamos calcular todas as 14 Matrizes Elementares seguindo a formula, e assim obtermos a Matriz Inversa.
+\newline
+\begin{center}
+M_{14}(M_{13}(M_{12}(M_{11}(M_{10}(M_{9}(M_{8}(M_{7}(M_{6}(M_{5}(M_{4}(M_{3}(M_{2}(M_{1}\cdot I_{4})))))))))))))) = M^{-1}  
+\end{center}
+\newline
+\newline
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Resolução
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{result}
+    Processos para obter a Inversa por meio da multiplicação das Elementares.\\
+
+\begin{center}
+    \boxed{ M_{1} \cdot I_{4} = M_{R1} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   1   &&   1 \\
+\end{array}\hspace{5}\right] * \left[\hspace{5}\begin{array}{dddddddd}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    1    && 1    \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{2} \cdot M_{R1} = M_{R2} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    1   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   1   &&   1 \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   && 0  \\\\
+   0  &&   1   &&   0   && 0  \\\\
+   1  &&   0   &&   1   && 0  \\\\
+   0  &&   0   &&   1   && 1  \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{3} \cdot M_{R2} = M_{R3} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+   -1   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   && 0  \\\\
+   0  &&   1   &&   0   && 0  \\\\
+   1  &&   0   &&   1   && 0  \\\\
+   0  &&   0   &&   1   && 1  \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   && 0  \\\\
+  -1  &&   1   &&   0   && 0  \\\\
+   1  &&   0   &&   1   && 0  \\\\
+   0  &&   0   &&   1   && 1  \\
+\end{array}\hspace{5}\right]$
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{4} \cdot M_{R3} = M_{R4} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&  -1 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   && 0  \\\\
+  -1  &&   1   &&   0   && 0  \\\\
+   1  &&   0   &&   1   && 0  \\\\
+   0  &&   0   &&   1   && 1  \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+   0  &&   0   &&   1   &&  1 \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{5} \cdot M_{R4} = M_{R5} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   && -\frac{1}{2} &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+   0  &&   0   &&   1   &&  1 \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+\frac{1}{2} && -\frac{1}{2}   &&   1   &&  1 \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{6} \cdot M_{R5} = M_{R6} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   2 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+\frac{1}{2} && -\frac{1}{2}   &&   1   &&  1 \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+   1  &&  -1   &&   2   &&  2 \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{7} \cdot M_{R6} = M_{R7} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&  -7   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+   1  &&  -1   &&   2   &&  2 \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+  -6  &&  -1   &&   2   &&  9 \\
+\end{array}\hspace{5}\right]$
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{8} \cdot M_{R7} = M_{R8} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   && \frac{1}{5} \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+  -6  &&  -1   &&   2   &&  9 \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+-\frac{6}{5}  &&  -\frac{1}{5}   &&   \frac{2}{5}   &&  \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{9} \cdot M_{R8} = M_{R9} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&  -1 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1  &&   0   &&   0   &&  0 \\\\
+  -1  &&   1   &&   0   &&  0 \\\\
+   1  &&   0   &&   0   && -1 \\\\
+-\frac{6}{5}  &&  -\frac{1}{5}   &&   \frac{2}{5}   &&  \frac{9}{5} \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+   1         &&           0   &&          0   &&           0 \\\\
+\frac{1}{5}  &&  \frac{6}{5}  && -\frac{2}{5} && -\frac{9}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{10} \cdot M_{R9} = M_{R10} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&  -1 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+   1         &&           0   &&          0   &&           0 \\\\
+\frac{1}{5}  &&  \frac{6}{5}  && -\frac{2}{5} && -\frac{9}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+\frac{11}{5} &&  \frac{1}{5}  && -\frac{2}{5} && -\frac{9}{5}\\\\
+\frac{1}{5}  &&  \frac{6}{5}  && -\frac{2}{5} && -\frac{9}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{11} \cdot M_{R10} = M_{R11} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&   0   &&   0 \\\\
+    0   &&   1   &&   3   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+\frac{11}{5} &&  \frac{1}{5}  && -\frac{2}{5} && -\frac{9}{5}\\\\
+\frac{1}{5}  &&  \frac{6}{5}  && -\frac{2}{5} && -\frac{9}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+\frac{11}{5} &&  \frac{1}{5}  && -\frac{2}{5} && -\frac{9}{5}\\\\
+\frac{16}{5}  &&  \frac{6}{5}  && -\frac{2}{5} && -\frac{24}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{12} \cdot M_{R11} = M_{R12} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+   1   &&   0   &&   0   &&   0 \\\\
+   0   && -\frac{1}{2}   &&   0 &&   0 \\\\
+   0   &&   0   &&   1   &&   0 \\\\
+   0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+\frac{11}{5} &&  \frac{1}{5}  && -\frac{2}{5} && -\frac{9}{5}\\\\
+\frac{16}{5}  &&  \frac{6}{5}  && -\frac{2}{5} && -\frac{24}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+\frac{11}{5} &&  \frac{1}{5}  && -\frac{2}{5} && -\frac{9}{5}\\\\
+-\frac{8}{5} && -\frac{3}{5}  &&  \frac{1}{5} && \frac{12}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{13} \cdot M_{R12} = M_{R13} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&   0   &&  -2   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+\frac{11}{5} &&  \frac{1}{5}  && -\frac{2}{5} && -\frac{9}{5}\\\\
+-\frac{8}{5} && -\frac{3}{5}  &&  \frac{1}{5} && \frac{12}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+\frac{1}{5} &&  \frac{1}{5}  && -\frac{2}{5} &&  \frac{1}{5}\\\\
+-\frac{8}{5} && -\frac{3}{5}  &&  \frac{1}{5} && \frac{12}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \boxed{ M_{14} \cdot M_{R13} = M^{-1}} }
+\end{center}
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    1   &&  -1   &&   0   &&   0 \\\\
+    0   &&   1   &&   0   &&   0 \\\\
+    0   &&   0   &&   1   &&   0 \\\\
+    0   &&   0   &&   0   &&   1 \\
+\end{array}\hspace{5}\right] \cdot \left[\hspace{5}\begin{array}{dddddddd}
+\frac{1}{5} &&  \frac{1}{5}  && -\frac{2}{5} &&  \frac{1}{5}\\\\
+-\frac{8}{5} && -\frac{3}{5}  &&  \frac{1}{5} && \frac{12}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right] = \left[\hspace{5}\begin{array}{dddddddd}
+\frac{9}{5} &&  \frac{4}{5}  && -\frac{3}{5}  && -\frac{11}{5}\\\\
+-\frac{8}{5} && -\frac{3}{5}  &&  \frac{1}{5} && \frac{12}{5} \\\\
+   1         &&           0   &&          0   &&           -1 \\\\
+-\frac{6}{5} && -\frac{1}{5}  && \frac{2}{5}  && \frac{9}{5} \\
+\end{array}\hspace{5}\right]$
+\end{center}
+\dotfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+\end{result}
+\begin{result}
+    Após o processo, aqui temos nossa Matriz Inversa, e após multiplicar pela Matriz, seu resultado será uma Matriz Identidade. Exatamente como o esperado.
+
+\begin{center}
+$\left[\hspace{5}\begin{array}{cccccccccccccccccc}
+    \frac{9}{5}   &&   \frac{4}{5}   &&   -\frac{3}{5}   &&   -\frac{11}{5} \\\\
+    -\frac{8}{5}   &&  -\frac{3}{5}   &&  \frac{1}{5}   &&   \frac{12}{5} \\\\
+    1  &&  0   &&   0   &&   -1 \\\\
+    -\frac{6}{5}   &&   -\frac{1}{5}   &&   \frac{2}{5}   &&   \frac{9}{5} \\
+\end{array}\hspace{10}\right] * \left[\begin{array}{dddddddd}
+    1   &&   1   &&   2   &&   1 \\\\
+    1   &&  -1   &&  -1   &&   2 \\\\
+   -1   &&  -2   &&   1   &&   2 \\\\
+    1   &&   1   &&   1   &&   1 \\
+\end{array}\right] = \left[\begin{array}{dddddddd}
+    1   &&    0    &&    0    && 0    \\\\
+    0   &&    1    &&    0    && 0    \\\\
+    0   &&    0    &&    1    && 0    \\\\
+    0   &&    0    &&    0    && 1    \\
+\end{array}\right]$
+\begin{center}\end{center}
+
+\boxed{\text{ Obrigado e até a próxima aula. }}
+
+\end{center}
+\end{result}   
+\end{document}
