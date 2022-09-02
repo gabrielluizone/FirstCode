@@ -1,3 +1,4 @@
+# Compactador Numérico | Estrutura de Dados
 df = [int(n) for n in input('Data Compression\n>> ').split(' ')]
 df.sort()
 uni = list(set(df))
@@ -13,5 +14,7 @@ for i in dic:
     out.extend([i, i, i])
   else:
     out.extend(['AA', i, dic[i]])
+# prt serve para torna a visualização facil, sem aspas e colchetes
+# coloque # no 'prt' e troque por 'out' para não usar poder computacional
 prt = str(out)[1:-1].replace(',', '')
 print(f'\nFull Compression\n>> {prt}')
