@@ -8,10 +8,13 @@ out = []
 for i in dic:
   if dic[i] == 1:
     out.append(i)
+    continue
   elif dic[i] == 2:
     out.extend([i, i])
+    continue
   elif dic[i] == 3:
     out.extend([i, i, i])
+    continue
   else:
     out.extend(['AA', i, dic[i]])
 # prt serve para torna a visualização facil, sem aspas e colchetes
