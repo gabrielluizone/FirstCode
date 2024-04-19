@@ -3,11 +3,11 @@
 
 | Vento   | Nuvens | Umidade | Chover? |
 |---------|--------|---------|---------|
-| Forte   | Sim    | Baixa   | Sim     |
-| Forte   | Não    | Alta    | Sim     |
-| Fraco   | Sim    | Média   | Não     |
-| Fraco   | Sim    | Alta    | Sim     |
-| Forte   | Sim    | Baixa   | Sim     |
-| Nenhum  | Não    | Baixa   | Não     |
-| Fraco   | Não    | Média   | Não     |
-| Forte   | Sim    | Alta    | Sim     |
+| Forte   | Sim    | Baixa   | $\color{green}{Sim}$     |
+| Forte   | Não    | Alta    | $\color{green}{Sim}$     |
+| Fraco   | Sim    | Média   | $\color{red}{Não}$     |
+| Fraco   | Sim    | Alta    | $\color{green}{Sim}$     |
+| Forte   | Sim    | Baixa   | $\color{green}{Sim}$     |
+| Nenhum  | Não    | Baixa   | $\color{red}{Não}$     |
+| Fraco   | Não    | Média   | $\color{red}{Não}$     |
+| Forte   | Sim    | Alta    | $\color{green}{Sim}$     |
