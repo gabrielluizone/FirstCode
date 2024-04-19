@@ -8,6 +8,6 @@
 | Fraco   | Sim    | Média   | $\color{red}{Não}$     |
 | Fraco   | Sim    | Alta    | $\color{green}{Sim}$     |
 | Forte   | Sim    | Baixa   | $\color{green}{Sim}$     |
-| Nenhum  | Não    | Baixa   | $\color{red}{Não}$     |
+| Fraco  | Não    | Baixa   | $\color{red}{Não}$     |
 | Fraco   | Não    | Média   | $\color{red}{Não}$     |
 | Forte   | Sim    | Alta    | $\color{green}{Sim}$     |
